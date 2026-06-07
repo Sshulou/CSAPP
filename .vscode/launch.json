@@ -1,0 +1,138 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Data Lab: debug btest",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/datalab-handout/btest",
+      "args": [],
+      "cwd": "${workspaceFolder}/datalab-handout",
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
+      "preLaunchTask": "Data Lab: make",
+      "setupCommands": [
+        {
+          "description": "Use Intel assembly syntax",
+          "text": "set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ]
+    },
+    {
+      "name": "Cache Lab: debug csim",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/cachelab-handout/csim",
+      "args": [
+        "-h"
+      ],
+      "cwd": "${workspaceFolder}/cachelab-handout",
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
+      "preLaunchTask": "Cache Lab: make",
+      "setupCommands": [
+        {
+          "description": "Use Intel assembly syntax",
+          "text": "set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ]
+    },
+    {
+      "name": "Malloc Lab: debug mdriver",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/malloclab-handout/mdriver",
+      "args": [
+        "-V"
+      ],
+      "cwd": "${workspaceFolder}/malloclab-handout",
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
+      "preLaunchTask": "Malloc Lab: make",
+      "setupCommands": [
+        {
+          "description": "Use Intel assembly syntax",
+          "text": "set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ]
+    },
+    {
+      "name": "Shell Lab: debug tsh",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/shlab-handout/tsh",
+      "args": [
+        "-p"
+      ],
+      "cwd": "${workspaceFolder}/shlab-handout",
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
+      "preLaunchTask": "Shell Lab: make",
+      "setupCommands": [
+        {
+          "description": "Use Intel assembly syntax",
+          "text": "set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ]
+    },
+    {
+      "name": "Bomb Lab: debug bomb",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/bomb/bomb",
+      "args": [],
+      "cwd": "${workspaceFolder}/bomb",
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
+      "setupCommands": [
+        {
+          "description": "Use Intel assembly syntax",
+          "text": "set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ]
+    },
+    {
+      "name": "Attack Lab: debug ctarget",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/target1/ctarget",
+      "args": [
+        "-q"
+      ],
+      "cwd": "${workspaceFolder}/target1",
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
+      "setupCommands": [
+        {
+          "description": "Use Intel assembly syntax",
+          "text": "set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ]
+    },
+    {
+      "name": "Attack Lab: debug rtarget",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/target1/rtarget",
+      "args": [
+        "-q"
+      ],
+      "cwd": "${workspaceFolder}/target1",
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
+      "setupCommands": [
+        {
+          "description": "Use Intel assembly syntax",
+          "text": "set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}

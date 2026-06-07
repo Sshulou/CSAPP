@@ -1,0 +1,277 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "CSAPP: make selected lab",
+      "type": "shell",
+      "command": "make",
+      "options": {
+        "cwd": "${workspaceFolder}/${input:labDir}"
+      },
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "CSAPP: clean selected lab",
+      "type": "shell",
+      "command": "make",
+      "args": [
+        "clean"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/${input:labDir}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Data Lab: make",
+      "type": "shell",
+      "command": "make",
+      "options": {
+        "cwd": "${workspaceFolder}/datalab-handout"
+      },
+      "group": "build",
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "Data Lab: run driver",
+      "type": "shell",
+      "command": "perl",
+      "args": [
+        "driver.pl"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/datalab-handout"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Data Lab: run btest",
+      "type": "shell",
+      "command": "./btest",
+      "options": {
+        "cwd": "${workspaceFolder}/datalab-handout"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Cache Lab: make",
+      "type": "shell",
+      "command": "make",
+      "options": {
+        "cwd": "${workspaceFolder}/cachelab-handout"
+      },
+      "group": "build",
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "Cache Lab: test csim",
+      "type": "shell",
+      "command": "./test-csim",
+      "options": {
+        "cwd": "${workspaceFolder}/cachelab-handout"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Cache Lab: run driver",
+      "type": "shell",
+      "command": "python3",
+      "args": [
+        "driver.py"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/cachelab-handout"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Malloc Lab: make",
+      "type": "shell",
+      "command": "make",
+      "options": {
+        "cwd": "${workspaceFolder}/malloclab-handout"
+      },
+      "group": "build",
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "Malloc Lab: run mdriver",
+      "type": "shell",
+      "command": "./mdriver",
+      "args": [
+        "-V"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/malloclab-handout"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Shell Lab: make",
+      "type": "shell",
+      "command": "make",
+      "options": {
+        "cwd": "${workspaceFolder}/shlab-handout"
+      },
+      "group": "build",
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "Shell Lab: test trace",
+      "type": "shell",
+      "command": "perl",
+      "args": [
+        "sdriver.pl",
+        "-t",
+        "${input:shTrace}.txt",
+        "-s",
+        "./tsh",
+        "-a",
+        "-p"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/shlab-handout"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Proxy Lab: make",
+      "type": "shell",
+      "command": "make",
+      "options": {
+        "cwd": "${workspaceFolder}/proxylab-handout"
+      },
+      "group": "build",
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "Proxy Lab: run driver",
+      "type": "shell",
+      "command": "./driver.sh",
+      "options": {
+        "cwd": "${workspaceFolder}/proxylab-handout"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Perf Lab: make",
+      "type": "shell",
+      "command": "make",
+      "options": {
+        "cwd": "${workspaceFolder}/perflab-handout"
+      },
+      "group": "build",
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "Perf Lab: run driver",
+      "type": "shell",
+      "command": "./driver",
+      "options": {
+        "cwd": "${workspaceFolder}/perflab-handout"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Arch Lab: extract sim.tar",
+      "type": "shell",
+      "command": "tar",
+      "args": [
+        "xf",
+        "sim.tar"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/archlab-handout"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Arch Lab: make sim",
+      "type": "shell",
+      "command": "make",
+      "args": [
+        "sim"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/archlab-handout"
+      },
+      "group": "build",
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "Bomb Lab: run bomb",
+      "type": "shell",
+      "command": "./bomb",
+      "options": {
+        "cwd": "${workspaceFolder}/bomb"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Attack Lab: run ctarget",
+      "type": "shell",
+      "command": "./ctarget",
+      "args": [
+        "-q"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/target1"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Attack Lab: run rtarget",
+      "type": "shell",
+      "command": "./rtarget",
+      "args": [
+        "-q"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/target1"
+      },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "labDir",
+      "type": "pickString",
+      "description": "Lab directory",
+      "options": [
+        "datalab-handout",
+        "cachelab-handout",
+        "malloclab-handout",
+        "shlab-handout",
+        "proxylab-handout",
+        "perflab-handout",
+        "archlab-handout"
+      ],
+      "default": "datalab-handout"
+    },
+    {
+      "id": "shTrace",
+      "type": "pickString",
+      "description": "Shell Lab trace",
+      "options": [
+        "trace01",
+        "trace02",
+        "trace03",
+        "trace04",
+        "trace05",
+        "trace06",
+        "trace07",
+        "trace08",
+        "trace09",
+        "trace10",
+        "trace11",
+        "trace12",
+        "trace13",
+        "trace14",
+        "trace15",
+        "trace16"
+      ],
+      "default": "trace01"
+    }
+  ]
+}
