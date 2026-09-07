@@ -1,23 +1,17 @@
 /***************************************************************************
- * Dr. Evil's Insidious Bomb, Version 1.1
- * Copyright 2011, Dr. Evil Incorporated. All rights reserved.
+ * Evil 博士的炸弹程序，版本 1.1
+ * 版权所有 2011，Dr. Evil Incorporated。保留所有权利。
  *
- * LICENSE:
+ * 许可说明：
  *
- * Dr. Evil Incorporated (the PERPETRATOR) hereby grants you (the
- * VICTIM) explicit permission to use this bomb (the BOMB).  This is a
- * time limited license, which expires on the death of the VICTIM.
- * The PERPETRATOR takes no responsibility for damage, frustration,
- * insanity, bug-eyes, carpal-tunnel syndrome, loss of sleep, or other
- * harm to the VICTIM.  Unless the PERPETRATOR wants to take credit,
- * that is.  The VICTIM may not distribute this bomb source code to
- * any enemies of the PERPETRATOR.  No VICTIM may debug,
- * reverse-engineer, run "strings" on, decompile, decrypt, or use any
- * other technique to gain knowledge of and defuse the BOMB.  BOMB
- * proof clothing may not be worn when handling this program.  The
- * PERPETRATOR will not apologize for the PERPETRATOR's poor sense of
- * humor.  This license is null and void where the BOMB is prohibited
- * by law.
+ * Dr. Evil Incorporated（实施者）在此明确允许你（受害者）使用这个炸弹
+ * 程序（以下简称“炸弹”）。这是一份限时许可，并将在受害者死亡时失效。
+ * 实施者不对炸弹造成的损坏、挫败、精神失常、眼睛突出、腕管综合征、
+ * 睡眠不足或其他伤害承担责任，除非实施者想把这些当作自己的功劳。
+ * 受害者不得把炸弹源码分发给实施者的敌人。受害者不得通过调试、逆向
+ * 工程、运行 strings、反编译、解密或其他技术了解并拆除炸弹。操作本
+ * 程序时不得穿防爆服。实施者不会为自己的糟糕幽默感道歉。在法律禁止
+ * 使用炸弹的地区，本许可无效。
  ***************************************************************************/
 
 #include <stdio.h>
@@ -25,10 +19,9 @@
 #include "support.h"
 #include "phases.h"
 
-/* 
- * Note to self: Remember to erase this file so my victims will have no
- * idea what is going on, and so they will all blow up in a
- * spectaculary fiendish explosion. -- Dr. Evil 
+/*
+ * Evil 博士备忘：记得删除这个文件，让受害者无法知道程序如何运行，
+ * 从而让他们触发一场壮观而邪恶的爆炸。
  */
 
 FILE *infile;
@@ -37,19 +30,19 @@ int main(int argc, char *argv[])
 {
     char *input;
 
-    /* Note to self: remember to port this bomb to Windows and put a 
-     * fantastic GUI on it. */
+    /* Evil 博士备忘：记得把炸弹移植到 Windows，并为它制作一个漂亮的
+     * 图形界面。 */
 
-    /* When run with no arguments, the bomb reads its input lines 
-     * from standard input. */
+    /* 没有提供参数时，炸弹从标准输入（通常是键盘）逐行读取答案。
+     * 例如：./bomb */
     if (argc == 1) {  
 	infile = stdin;
     } 
 
-    /* When run with one argument <file>, the bomb reads from <file> 
-     * until EOF, and then switches to standard input. Thus, as you 
-     * defuse each phase, you can add its defusing string to <file> and
-     * avoid having to retype it. */
+    /* 提供一个文件参数时，炸弹先从该文件逐行读取答案，读到文件末尾后
+     * 再切换到标准输入。每解开一关，就可以把答案追加到文件中，从而
+     * 避免下次运行时重复输入已经通过的答案。
+     * 例如：./bomb answers.txt */
     else if (argc == 2) {
 	if (!(infile = fopen(argv[1], "r"))) {
 	    printf("%s: Error: Couldn't open %s\n", argv[0], argv[1]);
@@ -57,59 +50,54 @@ int main(int argc, char *argv[])
 	}
     }
 
-    /* You can't call the bomb with more than 1 command line argument. */
+    /* 除程序名外，最多只能提供一个命令行参数。参数过多时打印用法并退出。 */
     else {
 	printf("Usage: %s [<input_file>]\n", argv[0]);
 	exit(8);
     }
 
-    /* Do all sorts of secret stuff that makes the bomb harder to defuse. */
+    /* 初始化炸弹环境，例如安装信号处理函数和执行其他准备工作。 */
     initialize_bomb();
 
     printf("Welcome to my fiendish little bomb. You have 6 phases with\n");
     printf("which to blow yourself up. Have a nice day!\n");
 
-    /* Hmm...  Six phases must be more secure than one phase! */
-    input = read_line();             /* Get input                   */
-    phase_1(input);                  /* Run the phase               */
-    phase_defused();                 /* Drat!  They figured it out!
-				      * Let me know how they did it. */
+    /* 第一关：读取一行输入，将字符串交给 phase_1 验证。 */
+    input = read_line();             /* 读取本关答案                 */
+    phase_1(input);                  /* 执行第一关验证               */
+    phase_defused();                 /* 记录当前关卡已经成功拆除     */
     printf("Phase 1 defused. How about the next one?\n");
 
-    /* The second phase is harder.  No one will ever figure out
-     * how to defuse this... */
+    /* 第二关：继续读取下一行输入并交给 phase_2 验证。 */
     input = read_line();
     phase_2(input);
     phase_defused();
     printf("That's number 2.  Keep going!\n");
 
-    /* I guess this is too easy so far.  Some more complex code will
-     * confuse people. */
+    /* 第三关：通常需要分析比前两关更复杂的控制流程。 */
     input = read_line();
     phase_3(input);
     phase_defused();
     printf("Halfway there!\n");
 
-    /* Oh yeah?  Well, how good is your math?  Try on this saucy problem! */
+    /* 第四关：读取答案并执行 phase_4，其中通常包含数学或递归逻辑。 */
     input = read_line();
     phase_4(input);
     phase_defused();
     printf("So you got that one.  Try this one.\n");
     
-    /* Round and 'round in memory we go, where we stop, the bomb blows! */
+    /* 第五关：读取答案并执行 phase_5，重点关注内存访问和数据映射。 */
     input = read_line();
     phase_5(input);
     phase_defused();
     printf("Good work!  On to the next...\n");
 
-    /* This phase will never be used, since no one will get past the
-     * earlier ones.  But just in case, make this one extra hard. */
+    /* 第六关：最后一个常规关卡，通常需要分析更复杂的数据结构。 */
     input = read_line();
     phase_6(input);
     phase_defused();
 
-    /* Wow, they got it!  But isn't something... missing?  Perhaps
-     * something they overlooked?  Mua ha ha ha ha! */
+    /* 六个常规关卡全部完成。注释暗示程序中可能还存在容易被忽略的内容。 */
     
     return 0;
 }
